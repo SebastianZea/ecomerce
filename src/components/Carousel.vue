@@ -31,8 +31,8 @@
               <li v-if="props.category !== 'base-individual'" class="flex-none w-[300px] snap-start">
               <a href="/00-base-individual" class="group block overflow-hidden">
                 <img
-                  src="/images/00-base-negra.jpeg"
-                  alt=""
+                  src="/images/00-base-negra.png"
+                  alt="Base Cama Individual"
                   class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
                 />
       
@@ -66,7 +66,7 @@
               <a href="/02-modular" class="group block overflow-hidden">
                 <img
                   src="/images/05-modular-negra.png"
-                  alt=""
+                  alt="Base Cama Modular"
                   class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
                 />
       
@@ -99,8 +99,8 @@
             <li v-if="props.category !== 'base'" class="flex-none w-[300px] snap-start">
               <a href="/01-base" class="group block overflow-hidden">
                 <img
-                  src="/images/00-base-negra.jpeg"
-                  alt=""
+                  src="/images/00-base-negra.png"
+                  alt="Base Cama"
                   class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
                 />
       
@@ -128,7 +128,7 @@
               <a href="/03-modular-sobremedida" class="group block overflow-hidden">
                 <img
                   src="/images/10-sobremedida-negra.png"
-                  alt=""
+                  alt="Base Cama Sobremedida"
                   class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
                 />
       

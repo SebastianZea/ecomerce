@@ -21,13 +21,7 @@ colors:
   - name: Negro
     url: "/images/10-sobremedida-negra.png"
     colorPrice: Gratuito
-  - name: Fucsia
-    url: "/images/11-sobremedida-fucsia.png"
-    colorPrice: 20000
   - name: Gris
     url: "/images/12-sobremedida-gris.png"
     colorPrice: 20000
-  - name: Rosa
-    url: "/images/13-sobremedida-rosa.png"
-    colorPrice: 30000
 ---
