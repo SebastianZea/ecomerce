@@ -1,0 +1,23 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from '../layouts/Layout.astro';
+import Product from "../components/Product.vue";
+import '../styles/global.css';
+import Base from "../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const products = await getCollection("product");
+  return products.map((product: any) => ({
+    params: { slug: product.slug },
+    props: product,
+  }));
+}
+
+type Props = CollectionEntry<"product">["data"];
+
+const product = Astro.props
+---
+
+<Base>
+    <Product product={product} client:load/>
+</Base>

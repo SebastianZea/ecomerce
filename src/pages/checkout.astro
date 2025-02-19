@@ -1,0 +1,14 @@
+---
+import Base from "../layouts/Base.astro";
+import Checkout from "../components/Checkout.vue";
+import CTA from "../components/CTA.vue";
+import "../styles/global.css";
+---
+
+<Base>
+  <main>
+    <CTA />
+    <Checkout client:load />
+  </main>
+</Base>
+

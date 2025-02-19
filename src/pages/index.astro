@@ -1,11 +1,75 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const products = await getCollection("product");
 ---
 
 <Layout>
-	<Welcome />
+  <main class="min-h-screen bg-white">
+    <section>
+      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <header>
+          <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
+            Colección de Productos
+          </h2>
+
+          <p class="mt-4 max-w-md text-gray-500 text-xs md:text-sm">
+            Las bases están hechas con madera de pino y forradas en lona antirrasguños. Traen 6 - 8 patas desarmables y su garantía es de 2 años.
+          </p>
+        </header>
+
+        <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            products.map((product) => (
+              <li>
+                <a
+                  href={`/${product.slug}`}
+                  class="group block overflow-hidden"
+                >
+                  <img
+                    src={product.data.image}
+                    alt=""
+                    class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+
+                  <div class="relative bg-white pt-3">
+                    <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                      {product.data.name}
+                    </h3>
+                    <h3 class="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                      Tiempo de Entrega: {product.data.stimedTime}
+                    </h3>
+
+                    <p class="mt-2">
+                      <span class="sr-only"> Price </span>
+
+                      {product.data.discount ? (
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs line-through text-gray-500">
+                        ${product.data.oldPrice}
+                        </span>
+                        <span class="tracking-wider text-red-600 font-semibold">
+                        ${product.data.price}
+                        </span>
+                        <span class="bg-red-100 text-red-800 text-xs font-medium px-2 py-0.5 rounded">
+                        {product.data.percentDiscount}% OFF
+                        </span>
+                      </div>
+                      ) : (
+                      <span class="tracking-wider text-gray-900">
+                        ${product.data.price}
+                      </span>
+                      )}
+                    </p>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
 </Layout>
